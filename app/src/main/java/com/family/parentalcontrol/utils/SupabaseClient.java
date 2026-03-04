@@ -33,8 +33,8 @@ public class SupabaseClient {
     private static final String TAG = "SupabaseClient";
 
     // ⚠️ REPLACE WITH YOUR SUPABASE CREDENTIALS ⚠️
-    private static final String SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
-    private static final String SUPABASE_KEY = "YOUR_ANON_KEY";
+    private static final String SUPABASE_URL = "https://bjzsokfuetlsdvgjwygp.supabase.co";
+    private static final String SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqenNva2Z1ZXRsc2R2Z2p3eWdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NDAwNzYsImV4cCI6MjA4ODIxNjA3Nn0.9LZLTLrqIsON8Q0AEroMOv6CJXA9wJU9iQTZNIT6HKw";
 
     private static SupabaseClient instance;
     private SupabaseApi api;

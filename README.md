@@ -110,6 +110,8 @@ Push to GitHub and CI will automatically:
 3. Build debug and release APKs
 4. Upload artifacts (download from Actions tab)
 
+> **Note:** Workflow has been updated to use `actions/upload-artifact@v4` following the April 2024 deprecation of v3.
+
 See `.github/workflows/build.yml` for workflow definition.
 
 ## Project Structure
