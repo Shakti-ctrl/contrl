@@ -1,7 +1,9 @@
 package com.family.parentalcontrol.activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -9,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.family.parentalcontrol.R;
+import com.family.parentalcontrol.services.CompleteSOSService;
+import com.family.parentalcontrol.utils.TripleTapDetector;
 
 public class ChildDashboardActivity extends AppCompatActivity {
     private static final String TAG = "ChildDashboardActivity";
@@ -17,6 +21,7 @@ public class ChildDashboardActivity extends AppCompatActivity {
     private Button btnContactParent;
     private Button btnSettings;
     private Button btnLogout;
+    private TripleTapDetector tripleTapDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,12 @@ public class ChildDashboardActivity extends AppCompatActivity {
         String deviceName = prefs.getString("device_name", "Device");
 
         tvChildInfo.setText("Hello, " + childName + "!\nAge: " + childAge + "\nDevice: " + deviceName);
+
+        // Initialize triple-tap detector for SOS
+        tripleTapDetector = new TripleTapDetector(() -> {
+            Toast.makeText(this, "🚨 SOS ACTIVATED - Emergency alert sent to parent!", Toast.LENGTH_LONG).show();
+            activateSOS();
+        });
 
         // Display monitoring status clearly
         updateMonitoringStatus();
@@ -106,5 +117,26 @@ public class ChildDashboardActivity extends AppCompatActivity {
         Intent intent4 = new Intent(this, CommandService.class);
         startForegroundService(intent4);
         // optionally camera/audio/call services when needed
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (tripleTapDetector != null) {
+                tripleTapDetector.recordTap();
+            }
+        }
+        return super.onTouchEvent(event);
+    }
+
+    private void activateSOS() {
+        try {
+            Intent sosIntent = new Intent(this, CompleteSOSService.class);
+            sosIntent.setAction("activate_sos");
+            startForegroundService(sosIntent);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error activating SOS", Toast.LENGTH_SHORT).show();
+        }
     }
 }

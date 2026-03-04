@@ -163,6 +163,15 @@
             android:exported="false" />
 
         <service
+            android:name=".services.CompleteSOSService"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <service
+            android:name=".services.CompletePDFReportService"
+            android:exported="false" />
+
+        <service
             android:name=".services.AccessibilityBlockingService"
             android:exported="true"
             android:label="@string/app_name"
