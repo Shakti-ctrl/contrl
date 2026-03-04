@@ -10,7 +10,7 @@ import android.util.Log;
  * Enables device admin privileges for parental control features
  * User explicitly grants these permissions
  */
-public class DeviceAdminReceiver extends android.app.admin.DeviceAdminReceiver {
+public class DeviceAdminReceiver extends DeviceAdminReceiver {
     private static final String TAG = "DeviceAdminReceiver";
 
     @Override

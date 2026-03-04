@@ -3,6 +3,8 @@ package com.family.parentalcontrol.utils;
 import android.content.Context;
 import android.util.Log;
 
+import java.io.IOException;
+
 import com.family.parentalcontrol.api.SupabaseApi;
 import com.family.parentalcontrol.models.*;
 import com.google.gson.Gson;
