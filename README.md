@@ -79,7 +79,7 @@ The backend uses only Supabase’s free tier limits: 500 MB of database storag
 ## Backend: Supabase (Free Tier)
 
 - PostgreSQL database for all data
-- REST API via PostgREST
+- REST API via Supabase’s built‑in HTTP endpoints (handled with Retrofit)
 - Storage bucket for media (photos, videos, audio)
 - Real-time subscriptions (optional)
 - Row Level Security for data protection

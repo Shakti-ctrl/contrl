@@ -53,8 +53,9 @@ dependencies {
     // Material Design
     implementation 'com.google.android.material:material:1.9.0'
     
-    // Supabase (PostgREST Client)
-    implementation 'io.github.postgrest:postgrest-kt:2.0.1'
+    // Networking for Supabase REST API
+    // PostgREST artifact removed because CI access now requires authentication; all server interactions
+    // are handled through our own Retrofit-based client (SupabaseClient).
     implementation 'io.ktor:ktor-client-android:2.3.2'
     implementation 'io.ktor:ktor-client-serialization:2.3.2'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1'

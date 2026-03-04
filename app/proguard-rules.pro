@@ -15,7 +15,6 @@
 -keepattributes *Annotation*
 
 # Keep Supabase classes
--keep class io.github.postgrest.** { *; }
 -keep class io.ktor.** { *; }
 -keep class kotlinx.serialization.** { *; }
 
